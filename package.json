@@ -1,43 +1,77 @@
 {
-  "name": "farmme-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
-  },
+  "name": "farmme",
+  "private": "true",
+  "version": "1.2.0",
+  "description": "farmme",
+  "main": "./desktop/electron-main.js",
+  "workspaces": [
+    "client"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "electron .",
+    "dev": "nodemon --exec electron .",
+    "development": "concurrently \"yarn workspace client start\" \"wait-on http://127.0.0.1:3000 && nodemon ./desktop/electron-main.js\"",
+    "prod": "sudo cross-env NODE_ENV=production nodemon --exec electron .",
+    "rebuild": "electron-rebuild -f -w yourmodule",
+    "watch:js": "webpack watch --mode development --config webpack.config.js",
+    "build:js": "webpack build --config webpack.config.js",
+    "build:app-w": "sudo electron-builder -w",
+    "build:app-mac": "sudo electron-builder -m",
+    "dev:webpack": "concurrently \"webpack --mode development --watch\" \"nodemon --exec electron .\"",
+    "build:webpack": "webpack --mode production"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "author": "Denny Kleines",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "electron": "^17.1.2",
+    "electron-builder": "^24.6.4",
+    "nodemon": "^2.0.20",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.1",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "wait-on": "^8.0.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "animate.css": "^4.1.1",
+    "animejs": "^3.2.1",
+    "autoprefixer": "^10.4.4",
+    "axios": "^0.26.1",
+    "bcrypt": "^5.0.1",
+    "chart.js": "^2.9.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "d3": "^7.6.1",
+    "dotenv": "^16.0.0",
+    "electron-is-dev": "^2.0.0",
+    "express": "^4.17.3",
+    "file-saver": "^2.0.5",
+    "freeport": "^1.0.5",
+    "ionicons": "^6.0.1",
+    "jquery": "^3.6.0",
+    "jquery.marquee": "^1.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.2.6",
+    "postcss": "^8.4.12",
+    "postcss-loader": "^6.2.1",
+    "pug": "^3.0.2",
+    "randomstring": "^1.2.2",
+    "synaptic": "^1.1.4",
+    "translate": "^3.0.1",
+    "translate-google": "^1.5.0",
+    "validator": "^13.7.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/xlsx-0.20.1.tgz"
   }
 }

@@ -1,0 +1,314 @@
+////////////////////////////
+////////////////////////////
+////////////////////////////
+/* ACCOUNTING LIST */
+////////////////////////////
+////////////////////////////
+////////////////////////////
+.accounting-list-section {
+  width: 1140px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 50px 0;
+  min-height: calc(100vh - 100px);
+}
+.accounting-list-flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: flex-start;
+  position: relative;
+}
+.al-add-block {
+  width: calc(50% - 80px);
+  padding: 90px 40px 40px 40px;
+  background-color: $green;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: sticky;
+  top: 128px;
+  align-items: center;
+}
+.al-add-header {
+  width: 100%;
+  height: 50px;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+.al-add-header-item {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 100;
+  cursor: pointer;
+
+  p {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  ion-icon {
+    font-size: 18px;
+  }
+}
+.al-add-header-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  background-color: $green;
+  z-index: 99;
+}
+.al-add-input {
+  width: calc(100% - 30px);
+  display: flex;
+  align-items: center;
+  height: calc(65px - 30px);
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  gap: 15px;
+  padding: 15px;
+
+  input {
+    font-size: 16px;
+    font-weight: 600;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+
+    &::placeholder {
+      color: $mainBlack;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .al-add-input-text {
+    flex-grow: 1;
+    color: $mainBlack;
+  }
+
+  ion-icon {
+    font-size: 18px;
+    color: $mainBlack;
+  }
+}
+.al-add-input-select {
+  cursor: pointer;
+}
+.al-add-save-btn {
+  padding: 0 20px;
+  height: 65px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #f0f0f0;
+  
+  cursor: pointer;
+  
+  ion-icon {
+    font-size: 22px;
+    
+  }
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    
+  }
+}
+.al-list-block {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.al-lb-month-text {
+  width: 100%;
+  font-size: 28px;
+  font-weight: 600;
+  opacity: 0.25;
+}
+.al-lb-item {
+  width: calc(100% - 30px);
+  height: calc(65px - 30px);
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.75;
+  }
+  .trans-text {
+    opacity: 0.5;
+  }
+  .date-text {
+    flex-grow: 1;
+    text-align: right;
+  }
+}
+.al-lb-item-pos {
+  .highlight-text {
+    color: $success;
+  }
+}
+.al-lb-item-neg {
+  .highlight-text {
+    color: $error;
+  }
+}
+.al-select-block {
+  width: calc(100% - 60px);
+  height: calc(100% - 40px);
+  padding: 30px 30px 10px 30px;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  display: none
+}
+.al-sb-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: $mainBlack;
+
+  &:hover {
+    opacity: 0.85;
+  }
+  ion-icon {
+    font-size: 22px;
+    color: #f0f0f0;
+  }
+}
+.al-sb-list {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &:hover {
+    overflow: auto;
+  }
+}
+.al-sb-list-item {
+  width: calc(100% - 60px);
+  height: 50px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d9d9d9;
+  }
+}
+.al-sb-add-btn {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  cursor: pointer;
+  display: none;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  ion-icon {
+    font-size: 22px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+.al-sb-add-input {
+  width: calc(100% - 66px);
+  height: calc(50px - 6px);
+  border: 3px solid $mainBlack;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  padding: 0 50px 0 10px;
+  background-color: #fff;
+  position: relative;
+
+  input {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    flex-grow: 1;
+    padding: 0 15px;
+  }
+}
+.al-sb-add-input-btn {
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $mainBlack;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  ion-icon {
+    font-size: 22px;
+    color: #f0f0f0;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "ext": "js,ts,tsx,json,scss",
+  "ignore": ["node_modules", "client/dist"]
+}
