@@ -1,4 +1,4 @@
-// TEST COMMIT ||| DELETE LATER
+
 
 const { app, BrowserWindow, BrowserView, screen, ipcMain, session, globalShortcut } = require('electron');
 const path = require('path');
