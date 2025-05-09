@@ -1,4 +1,11 @@
+/* - name: Build React Frontend
+        working-directory: ./client
+        run: |
+            set CI=
+            yarn build 
+        shell: cmd */
 
+// DO NOT FORGET TO REMOVE THAT AND FIX ALL WARNINGS
 
 const { app, BrowserWindow, BrowserView, screen, ipcMain, session, globalShortcut } = require('electron');
 const path = require('path');

@@ -23,8 +23,11 @@ jobs:
         run: yarn install
   
       - name: Build React Frontend
-        working-directory: ./client       
-        run: CI='' yarn build
+        working-directory: ./client
+        run: |
+            set CI=
+            yarn build 
+        shell: cmd
       
       - name: Install Dependencies
         run: yarn install
