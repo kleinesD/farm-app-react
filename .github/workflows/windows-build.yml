@@ -32,15 +32,15 @@ jobs:
       - name: Build Windows App
         run: yarn run build
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+            name: windows-build
+            path: dist/*.exe
+            
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.3
-        with:
-          name: windows-build
-          path: dist/*.exe
