@@ -33,11 +33,11 @@ jobs:
         run: yarn run build
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
             name: windows-build
             path: dist/*.exe
-            
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
