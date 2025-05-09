@@ -7,6 +7,15 @@
 
 // DO NOT FORGET TO REMOVE THAT AND FIX ALL WARNINGS!!!
 
+/* - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} */
+
+// ADD AT THE END TO RELEASE
+
 const { app, BrowserWindow, BrowserView, screen, ipcMain, session, globalShortcut } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
