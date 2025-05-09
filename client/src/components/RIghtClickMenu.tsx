@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { House, Cow, ArrowArcLeft, ArrowArcRight, Browsers } from '@phosphor-icons/react';
 
 interface RIghtClickMenuProps {
@@ -9,6 +9,8 @@ interface RIghtClickMenuProps {
 const RightClickMenu: React.FC<RIghtClickMenuProps> = ({ block }) => {
   const [rcm, setRcm] = useState<{ x: number, y: number } | null>(null);
   const [additionalLinks, setAdditionalLinks] = useState<any[] | null>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleContextMenu = (event: MouseEvent) => {
@@ -55,11 +57,11 @@ const RightClickMenu: React.FC<RIghtClickMenuProps> = ({ block }) => {
               <Cow size={14} color="#0a0a0a" weight="fill" />
               <p>Домой</p>
             </Link>
-            <div className='rc-menu-item' onClick={() => history.back()}>
+            <div className='rc-menu-item' onClick={() => navigate(-1)}>
             <ArrowArcLeft size={14} color="#0a0a0a" weight="fill" />
               <p>Назад</p>
             </div>
-            <div className='rc-menu-item' onClick={() => history.forward()}>
+            <div className='rc-menu-item' onClick={() => navigate(1)}>
             <ArrowArcRight size={14} color="#0a0a0a" weight="fill" />
               <p>Вперед</p>
             </div>

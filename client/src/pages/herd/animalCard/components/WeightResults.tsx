@@ -1,6 +1,5 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-moment
 
 interface WeightResultsProps {
   animal: any

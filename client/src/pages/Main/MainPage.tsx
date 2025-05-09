@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import checkAuth from "../../utils/checkAuth";
+import checkAuth from "../../utils/useCheckAuth";
 
 const MainPage: React.FC = () => {
   const user = useSelector((state: any) => state.user.data);

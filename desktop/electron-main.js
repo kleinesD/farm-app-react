@@ -2,6 +2,8 @@ const { app, BrowserWindow, BrowserView, screen, ipcMain, session, globalShortcu
 const path = require('path');
 const isDev = require('electron-is-dev');
 
+const updater = require('./updater.ts');
+
 
 const expressApp = require('../server/app');
 const server = require('../server/server');
@@ -14,6 +16,11 @@ let mainWindow;
 
 
 const createWindow = () => {
+
+  // Check for app updates
+  setTimeout(() => {
+
+  }, 3000);
 
   let ses = session.defaultSession;
 
@@ -108,7 +115,13 @@ const createWindow = () => {
     // disable re-loading of the page
   });
 
-  mainWindow.loadFile(path.join(__dirname, '../client/public/index.html'));
+  mainWindow.loadFile(path.join(__dirname, '../public/index.html'));
+
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.loadFile(path.join(__dirname, '../client/public/index.html'));
+  } else {
+    mainWindow.loadFile(path.join(__dirname, '../client/build/index.html'));
+  }
 
 
   /* mainWindow.loadURL('http://127.0.0.1:604/'); */

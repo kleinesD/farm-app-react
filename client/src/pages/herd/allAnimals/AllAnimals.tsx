@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent, useMemo } from "react";
 import MainSection from "../../../components/MainSection";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
@@ -30,12 +30,13 @@ const AllAnimals: React.FC = () => {
 
   const { data, isLoading, isSuccess } = useGetAllFarmAnimals()
 
+  const filteredAnimalsBuf = useFilterAnimals({ filter, animals: data?.data?.animals })
+  const searchedAnimalsBuf = useFilterAnimals({ filter, animals: data?.data?.animals })
+  
   useEffect(() => {
-    if (isSuccess) {
-      setFilteredAnimals(useFilterAnimals({ filter, animals: data.data.animals }))
-      setSearchedAnimals(useFilterAnimals({ filter, animals: data.data.animals }))
-    }
-  }, [data, filter]);
+    setFilteredAnimals(filteredAnimalsBuf);
+    setSearchedAnimals(searchedAnimalsBuf);
+  }, [filteredAnimalsBuf, searchedAnimalsBuf]);
 
 
 

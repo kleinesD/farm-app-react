@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useDispatch } from "react-redux";
-import { login, logout } from "../../../app/slices/userSlice";
+import { login, logout } from "../../app/slices/userSlice";
 import apiClient from "../../apiClient";
 
 const useLogin = () => {

@@ -22,6 +22,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "router/Router.tsx"],
+  "include": ["src", "src/router/Router.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AppRoutes } from '../router/Router';
-import checkAuth from './utils/checkAuth';
+import { AppRoutes } from './router/Router';
+import useCheckAuth from './utils/useCheckAuth';
 import { useDispatch } from "react-redux";
-import { login } from '../app/slices/userSlice';
+import { login } from './app/slices/userSlice';
 import MainMenu from './components/mainMenu/MainMenu';
 import Loader from './components/otherComponents/loader/Loader';
 import QuickTitles from './components/QuickTitles';
@@ -11,7 +11,7 @@ import QuickTitles from './components/QuickTitles';
 // ${process.env.PUBLIC_URL}
 
 function App() {
-  const { data, isLoading, isSuccess } = checkAuth();
+  const { data, isLoading, isSuccess } = useCheckAuth();
   const dispatch = useDispatch();
 
   /* Replace with loading window */

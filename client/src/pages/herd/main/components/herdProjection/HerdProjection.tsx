@@ -13,9 +13,9 @@ const HerdProjection: React.FC<HerdProjectionProps> = ({ animals }) => {
   const [year, setYear] = useState<number>(5);
   const [category, setCategory] = useState<string>('animals');
 
+  const projectionYears = useProjection(animals, 5);
 
   useEffect(() => {
-    const projectionYears = useProjection(animals, 5);
     const storedData = localStorage.getItem('herdProjection');
     const prevProj = storedData ? JSON.parse(storedData) : null;
 
