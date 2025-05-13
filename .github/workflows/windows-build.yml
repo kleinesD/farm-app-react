@@ -2,8 +2,8 @@ name: Build Electron App for Windows
 
 on:
   push:
-    branches:
-      - master   # or 'master', or any other branch you want
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -43,3 +43,10 @@ jobs:
         with:
             name: windows-build
             path: dist/*.exe
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+            files: dist/*.exe
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
